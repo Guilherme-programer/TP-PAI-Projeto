@@ -40,16 +40,47 @@ Copiar código
 
 ---
 
-## 🛠️ Setup e Execução
+# 🛠️ Setup e Execução
 
-### 📋 Requisitos
+## 📋 Requisitos
 
 O projeto requer a instalação das seguintes bibliotecas Python:
 
 ```bash
 pip install opencv-python numpy matplotlib scikit-image scipy
-▶️ Instruções de ExecuçãoO fluxo de trabalho é iniciado executando-se apenas o script da Questão 1.Certifique-se de que todas as imagens de entrada estão no mesmo diretório do script.Execute o script principal no seu terminal:Bashpython q1_segmentacao.py
-Saídas EsperadasA execução gerará duas janelas de plotagem do Matplotlib:Comparação da Q1: Uma matriz comparando os 6 métodos de segmentação/borda nas 3 imagens de contexto.Descrição Geométrica da Q2: A visualização do objeto segmentado (Imagem Médica) com o Fecho Convexo (Azul) e a Aproximação Poligonal (Verde) sobrepostos ao contorno refinado.📝 Análise Técnica (Destaques)1. Desempenho dos Algoritmos de Segmentação (Q1)O K-Means ($\text{K}=4$) demonstrou ser o método mais eficaz para isolar o objeto principal na Imagem Médica, superando o Watershed (que sofreu com supersegmentação) e fornecendo a máscara ideal para a próxima etapa. O algoritmo Canny, por sua vez, produziu as melhores bordas para análise estrutural nas imagens externas.2. Representação Geométrica (Q2)A Aproximação Poligonal é utilizada como uma técnica de compactação de dados, reduzindo o contorno de milhares de pontos para dezenas de vértices, preservando a silhueta principal.Necessidade de Refinamento: Foi essencial aplicar uma filtragem morfológica (Abertura) antes da descrição geométrica para remover artefatos de fundo remanescentes da segmentação K-Means, garantindo que as técnicas geométricas analisassem apenas a figura humana.Fecho Convexo: O polígono azul demonstra a convexidade da forma, indicando onde o objeto apresenta concavidades (reentrâncias) em relação à sua casca externa.
+▶️ Instruções de Execução
+O fluxo de trabalho é iniciado executando-se apenas o script da Questão 1, que automaticamente encadeia a execução da Questão 2.
+
+Certifique-se de que todas as dependências estão instaladas.
+
+Verifique se as imagens de entrada estão no diretório raiz.
+
+Execute o script principal no terminal:
+
+bash
+Copiar código
+python q1_segmentacao.py
+📈 Saídas Esperadas
+A execução gerará duas janelas de plotagem do Matplotlib:
+
+Comparação da Q1:
+Uma matriz comparando os 6 métodos de segmentação/borda nas 3 imagens de contexto.
+
+Descrição Geométrica da Q2:
+A visualização do objeto segmentado com o Fecho Convexo (azul) e a Aproximação Poligonal (verde) sobrepostos ao contorno refinado.
+
+📝 Análise Técnica (Destaques)
+1. Desempenho dos Algoritmos de Segmentação (Q1)
+O K-Means (K=4) demonstrou ser o método mais eficaz para isolar o objeto principal na Imagem Médica, realizando uma segmentação foreground/background eficiente.
+
+O Canny foi o mais eficiente na detecção de bordas finas e conectadas, ideal para análise estrutural.
+
+2. Representação Geométrica (Q2)
+A Aproximação Poligonal foi utilizada como técnica de compactação de dados, reduzindo o contorno de milhares de pontos para dezenas de vértices, preservando a silhueta principal.
+
+Refinamento Essencial: Foi aplicada uma filtragem morfológica (Abertura) antes da descrição geométrica, removendo artefatos de fundo do K-Means e mantendo apenas a figura humana.
+
+O Fecho Convexo (azul) representa a convexidade geral da forma e serve como base para avaliar as concavidades do corpo (como axilas e regiões internas).
 ```
 👤 Autor
 Desenvolvedor: Guilherme Eduardo Matos Drumond
