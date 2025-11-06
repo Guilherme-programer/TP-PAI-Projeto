@@ -68,6 +68,9 @@ Descrição Geométrica da Q2: A visualização do objeto segmentado com o Fecho
 Desempenho dos Algoritmos de Segmentação (Q1) O K-Means (K=4) demonstrou ser o método mais eficaz para isolar o objeto principal na Imagem Médica, realizando uma segmentação foreground/background eficiente. O Canny foi o mais eficiente na detecção de bordas finas e conectadas, ideal para análise estrutural.
 
 Representação Geométrica (Q2) A Aproximação Poligonal foi utilizada como técnica de compactação de dados, reduzindo o contorno de milhares de pontos para dezenas de vértices, preservando a silhueta principal. Refinamento Essencial: Foi aplicada uma filtragem morfológica (Abertura) antes da descrição geométrica, removendo artefatos de fundo do K-Means e mantendo apenas a figura humana. O Fecho Convexo (azul) representa a convexidade geral da forma e serve como base para avaliar as concavidades do corpo.
+
+
+
 ```
 
 👤 Autor e Documentação
