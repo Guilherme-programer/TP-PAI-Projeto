@@ -40,7 +40,7 @@ Copiar código
 
 ---
 
-## 🛠️ Setup
+## 🛠️ Setup e Execução
 
 ### 📋 Requisitos
 
@@ -93,6 +93,6 @@ Aproximação Poligonal	N/A	[Insira o valor de approx_points]
 A Aproximação Poligonal (em verde) alcançou uma compactação de [Calcule a % de Redução] dos dados, mantendo a geometria essencial da forma.
 
 O Fecho Convexo (em azul) evidenciou a convexidade geral da forma, e as diferenças em relação ao contorno real indicam concavidades do corpo (ex: axilas).
-
+```
 👤 Autor
 Desenvolvedor: Guilherme Eduardo Matos Drumond
