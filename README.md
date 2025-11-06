@@ -40,7 +40,7 @@ Copiar código
 
 ---
 
-## 🛠️ Setup e Execução
+## 🛠️ Setup
 
 ### 📋 Requisitos
 
@@ -48,12 +48,12 @@ O projeto requer a instalação das seguintes bibliotecas Python:
 
 ```bash
 pip install opencv-python numpy matplotlib scikit-image scipy
-▶️ Instruções de Execução
+▶️ Execução
 O fluxo de trabalho é iniciado executando-se apenas o script da Questão 1.
 
 Certifique-se de que todas as imagens de entrada estão no mesmo diretório do script.
 
-Execute o script principal no seu terminal:
+Execute o script principal no terminal:
 
 bash
 Copiar código
@@ -71,24 +71,25 @@ Executar automaticamente o q2_descricao_geometrica.py, exibindo o resultado da Q
 A matriz comparativa demonstrou a alta dependência dos métodos ao contexto da imagem:
 
 Método	Desempenho Chave	Contexto de Sucesso
-K-Means (K=4)	Melhor desempenho na segmentação. Isolou com eficácia regiões de interesse baseadas em classes de intensidade (ex: jaleco branco) e provou ser robusto para foreground/background.	Imagem Médica
-Watershed	Falha por supersegmentação. Devido à extrema sensibilidade a gradientes locais, o método gerou inúmeras regiões irrelevantes e ruído topológico em todas as cenas.	Nenhuma das cenas
-Canny	Melhor definição de bordas. Produziu bordas finas e conectadas, ideal para análises subsequentes que dependem de contornos bem definidos.	Imagem Industrial e Cena Natural
+K-Means (K=4)	Melhor desempenho na segmentação. Isolou regiões de interesse com eficácia (ex: jaleco branco) e foi robusto para foreground/background.	Imagem Médica
+Watershed	Falha por supersegmentação. Devido à sensibilidade a gradientes locais, gerou regiões irrelevantes e ruído topológico.	Nenhuma
+Canny	Melhor definição de bordas. Produziu bordas finas e conectadas, ideal para análises que dependem de contornos.	Imagem Industrial e Cena Natural
 
 2. Descrição Geométrica Refinada (Questão 2)
 O objeto segmentado (figura humana) foi submetido à análise geométrica.
 
-📢 Processo de Refinamento Necessário
-Devido aos ruídos no fundo da imagem médica (artefatos do K-Means), foi implementado um passo de filtragem morfológica (operação de Abertura) no script da Q2 para isolar a silhueta principal.
+Refinamento:
+Devido aos ruídos no fundo da imagem médica (artefatos do K-Means), foi implementado um passo de filtragem morfológica (Abertura) no script da Q2 para isolar a silhueta principal.
 
-📈 Resultados da Compactação
+Resultados da Compactação:
+
 Representação	Pontos de Contorno (Original)	Vértices do Polígono (ε=3%)
-Contorno Inicial	[Insira o valor de 'original_points']	N/A
-Aproximação Poligonal	N/A	[Insira o valor de 'approx_points']
+Contorno Inicial	[Insira o valor de original_points]	N/A
+Aproximação Poligonal	N/A	[Insira o valor de approx_points]
 
-A Aproximação Poligonal (em verde) alcançou uma compactação de [Calcule a Porcentagem de Redução]% dos dados, mantendo a geometria essencial para o reconhecimento de forma.
+A Aproximação Poligonal (em verde) alcançou uma compactação de [Calcule a % de Redução] dos dados, mantendo a geometria essencial da forma.
 
-O Fecho Convexo (em azul) demonstrou a convexidade geral da forma, com as diferenças em relação ao contorno real indicando as concavidades do corpo (ex: axilas).
+O Fecho Convexo (em azul) evidenciou a convexidade geral da forma, e as diferenças em relação ao contorno real indicam concavidades do corpo (ex: axilas).
 
 👤 Autor
 Desenvolvedor: Guilherme Eduardo Matos Drumond
