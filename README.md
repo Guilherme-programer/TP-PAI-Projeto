@@ -91,4 +91,4 @@ A Aproximação Poligonal (em verde) alcançou uma compactação de [Calcule a P
 O Fecho Convexo (em azul) demonstrou a convexidade geral da forma, com as diferenças em relação ao contorno real indicando as concavidades do corpo (ex: axilas).
 
 👤 Autor
-Desenvolvedor: [Guilherme Eduardo Matos Drumond]
+Desenvolvedor: Guilherme Eduardo Matos Drumond
