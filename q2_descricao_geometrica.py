@@ -15,13 +15,11 @@ def describe_shape(mask, approx_epsilon_factor=0.03):
     """
     mask_bin = cv2.convertScaleAbs(mask)
     
-    # Isolar o objeto principal (a pessoa/jaleco) binarizando a região mais clara
-    # Mantemos o limiar em 128
+    
     _, mask_target = cv2.threshold(mask_bin, 128, 255, cv2.THRESH_BINARY)
     
     # --- CORREÇÃO APLICADA: FILTRAGEM MORFOLÓGICA (Abertura) ---
-    # Kernel 5x5 para operação de Abertura (Erosão seguida de Dilatação).
-    # Isso remove blobs brancos pequenos (ruído) sem alterar muito o objeto grande.
+
     kernel = np.ones((5,5),np.uint8) 
     mask_cleaned = cv2.morphologyEx(mask_target, cv2.MORPH_OPEN, kernel, iterations=1)
     
@@ -33,7 +31,6 @@ def describe_shape(mask, approx_epsilon_factor=0.03):
 
     c = max(contours, key=cv2.contourArea)
     
-    # Se o maior contorno ainda for muito pequeno (só ruído), ignora.
     if cv2.contourArea(c) < 500: 
         return None, 0, 0
     
@@ -65,8 +62,18 @@ if __name__ == '__main__':
 
         print("\nIniciando Questão 2: Descrição Geométrica...")
         
+        # AQUI OCORRE O CÁLCULO DOS PONTOS
         img_description, original_points, approx_points = describe_shape(mask_q2, approx_epsilon_factor=0.03)
 
+        if original_points > 0:
+            print("\n=================================================")
+            print("=== DADOS PARA O RELATÓRIO TÉCNICO ===")
+            print("=================================================")
+            print(f"Pontos de Contorno (Original): {original_points}")
+            print(f"Vértices do Polígono (Aproximado): {approx_points}")
+            print("=================================================")
+        
+        # Bloco de Visualização
         if img_description is not None:
             fig2, ax2 = plt.subplots(1, 1, figsize=(6, 6))
             
@@ -75,7 +82,7 @@ if __name__ == '__main__':
             ax2.set_xlabel(f"Original: {original_points} pts | Poligonal (ε=3%): {approx_points} vértices | Fecho Convexo: Azul")
             ax2.axis('off')
             plt.tight_layout()
-            plt.show()
+            plt.show() 
             print("Visualização da Questão 2 concluída.")
         else:
-            print("Não foi possível gerar a visualização da Questão 2. O contorno pode ter sido removido pela filtragem.")
+            print("Não foi possível gerar a visualização da Questão 2.")

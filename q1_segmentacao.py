@@ -99,8 +99,7 @@ if __name__ == '__main__':
         except Exception as e:
             print(f"ERRO grave ao processar {name}: {e}.")
 
-    # 1. Visualização da Questão 1 (Omitida aqui por brevidade, mas está no seu código)
-    # ... (Bloco de visualização da Q1) ...
+ 
     
     image_count = len(all_results)
     if image_count > 0:
@@ -129,8 +128,7 @@ if __name__ == '__main__':
         plt.tight_layout()
         plt.show()
     
-    # 2. Preparação para a Questão 2 (Salvar a máscara necessária)
-    # Garante que a máscara da Imagem Médica existe antes de tentar salvar
+    # 2. Preparação para a Questão 2 
     if 'Imagem Médica' in all_results:
         mask_to_save = all_results['Imagem Médica'][f'Region Growing (K={K_VALUE_Q1})']
         
