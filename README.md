@@ -57,6 +57,7 @@ Execute o script principal no terminal:
 Bash
 
 python q1_segmentacao.py
+```
 📈 Saídas Esperadas
 A execução gerará duas janelas de plotagem do Matplotlib:
 
