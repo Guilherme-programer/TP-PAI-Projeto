@@ -48,7 +48,10 @@ O projeto requer a instalação das seguintes bibliotecas Python:
 
 ```bash
 pip install opencv-python numpy matplotlib scikit-image scipy
-▶️ Execução
+
+---
+
+## ▶️ Execução
 O fluxo de trabalho é iniciado executando-se apenas o script da Questão 1.
 
 Certifique-se de que todas as imagens de entrada estão no mesmo diretório do script.
